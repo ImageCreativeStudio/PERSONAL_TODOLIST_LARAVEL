@@ -7,15 +7,32 @@
     <title>Aplicación Todo List - Laravel</title>
 </head>
 <body>
-    <h1>Bienvenido al inicio del sistema</h1>
     
     <form action="{{ url('/') }}" method="post">
-    @csrf
+        @csrf
         <input type="text" name="task" id="task">
         
         <input type="submit" value="Agregar tarea">
-
+        
     </form>
+
+    <br>
+
+    <table border="1" class="table border table-striped table-responsive">
+
+        <tr>
+            <td> Nombre de la tarea </td>
+            <td> Acción </td>
+        </tr>
+    @foreach ($tasks as $task)
+        <!-- Mostrar todos los registros de tareas -->
+        <tr>
+            <td> {{ $task->task }} </td>
+            <td> X </td>
+        </tr>    
+    @endforeach
+
+    </table>
 
 </body>
 </html>

@@ -6,5 +6,6 @@ use App\Http\Controllers\TaskController;
 // Route::get('/', function () {
 //     return view('task.index');
 // });
+
 Route::get('/', [TaskController::class, 'index']);
 Route::post('/', [TaskController::class, 'store']);
