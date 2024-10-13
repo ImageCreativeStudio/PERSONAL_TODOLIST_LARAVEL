@@ -15,24 +15,31 @@
         <input type="submit" value="Agregar tarea">
         
     </form>
-
+    
     <br>
-
+    
     <table border="1" class="table border table-striped table-responsive">
-
+        
         <tr>
             <td> Nombre de la tarea </td>
             <td> Acción </td>
         </tr>
-    @foreach ($tasks as $task)
+
+        @foreach ($tasks as $task)
         <!-- Mostrar todos los registros de tareas -->
         <tr>
             <td> {{ $task->task }} </td>
-            <td> X </td>
+            <td>
+                <form action="{{ route('task.destroy', $task->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="X">
+                </form>
+            </td>
         </tr>    
-    @endforeach
-
+        @endforeach
+        
     </table>
-
+    
 </body>
 </html>
